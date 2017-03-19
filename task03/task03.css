@@ -1,0 +1,8 @@
+* {margin: 0; padding: 0;}
+body{padding:20px;}
+#main{padding: 20px;background: #eee;border: 1px solid #999;overflow: hidden;}
+#team_logo{float: left;box-sizing:border-box;width: 200px;padding: 20px;border: 1px solid #999;}
+#team_logo img{display: inline-block;margin-right: 20px;vertical-align:top;}
+#content{padding: 20px;border: 1px solid #999;margin-left: 220px;margin-right: 140px;}
+#person_logo{padding: 20px 20px 0 20px;border: 1px solid #999;box-sizing:border-box;width:120px;float: right;}
+#person_logo img{margin-bottom: 20px;}
