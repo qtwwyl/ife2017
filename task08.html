@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>task08</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+						
+			#box{border: 1px solid #999;padding: 20px 20px 0 20px;margin: 20px;width: 100%;max-width: 1200px;margin: 0 auto;}
+			.row:before,.row:after{content: "";display: table;clear: both;}
+			[class*="col-"]{float:left;height:50px; border: 1px solid #999;background: #eee;padding: 20px;margin-bottom: 20px;}
+			@media all and (min-width:768px){
+		        .col-md-1{ width: 8%;    }
+		        .col-md-2{ width: 17%;    }
+		        .col-md-3{ width: 25%;    }
+		        .col-md-4{ width: 33.3333%;    }
+		        .col-md-6{ width: 50%;      }
+		    }
+	        @media all and (max-width:768px){
+		        
+		        .col-2{ width: 17%;    }
+		        .col-3{ width: 25%;    }
+		        .col-6{ width: 50%;    }
+		        .col-8{ width: 66%;    }
+		        .col-12{ width: 100%;      }
+    		}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<div class="row">
+				<div class="col-6 col-sm-6 col-md-4">silan</div>
+				<div class="col-6 col-sm-6 col-md-4">silan</div>
+				<div class="col-12 col-sm-12 col-md-4">silan</div>
+			</div>
+			<div class="row">
+				<div class="col-3 col-sm-3 col-md-3">sanlan</div>
+				<div class="col-6 col-sm-6 col-md-6">liulan</div>
+				<div class="col-3 col-sm-3 col-md-3">sanlan</div>
+			</div>
+			<div class="row">
+				<div class="col-2 col-sm-2 col-md-1">yilan</div>
+				<div class="col-2 col-sm-2 col-md-1">yilan</div>
+				<div class="col-8 col-sm-8 col-md-2">lianglan</div>
+				<div class="col-3 col-sm-3 col-md-2">lianglan</div>
+				<div class="col-3 col-sm-3 col-md-6">liulan</div>
+			</div>
+			
+		</div>
+	
+	</body>
+</html>
