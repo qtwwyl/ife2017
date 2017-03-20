@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>task10</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}						
+			#box{border: 1px solid #999;padding: 20px;width: 100%;max-width: 1200px;margin: 0 auto;display: flex;flex-wrap:wrap;}
+			[id*="item"]{width: 150px;border: 1px solid #f00;}
+			#item1{height: 120px;}
+			#item2{height: 100px;}
+			#item3{height: 40px;}
+			#item4{height: 200px;border: 1px solid #0f0;}
+			@media (min-width: 640px){
+				#box{justify-content:space-between;align-items:center;}
+			}
+			@media (max-width: 640px){
+				#box{justify-content:space-around;align-items:flex-start;}
+				#item4{order:-1;}
+			}
+		</style>
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<div id="item1"></div>
+			<div id="item2"></div>
+			<div id="item3"></div>
+			<div id="item4"></div>
+		</div>
+	
+	</body>
+</html>
