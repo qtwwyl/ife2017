@@ -1,0 +1,49 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>task12</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}	
+			table,input,#banner{margin: 20px auto;}					
+			table thead{background: #000;color: #fff;}
+			tbody tr:nth-child(1),tbody tr:nth-child(2),tbody tr:nth-child(3){color: red;}
+			tbody tr:nth-child(even){background: #eee;}
+			input{width:100px;transition:width 1s;display: block;}
+			input:hover{width:200px;border-color:blue; box-shadow: 0 0 5px blue;}
+			#banner{width: 300px;height: 200px;position: relative;overflow: hidden;border: 1px solid #fff;}
+			[id*="banner"]{width: 300px;height: 200px;position: absolute;transition:translate 2s;}
+			#banner1{background: red;}
+			#banner2{background: blue;}
+			#banner3{background: green;}
+			#banner span{display: inline-block;width: 20px;position: absolute;bottom: 0;background: rgba(255,255,255,0.5);text-align: center;color: #fff;}
+			span:nth-of-type(1){right: 48px;}
+			span:nth-of-type(2){right: 24px;}
+			span:nth-of-type(3){right: 0;}
+			span:nth-of-type(1):hover{transform}
+		</style>
+		</style>
+	</head>
+	<body>
+		
+		<table>
+			<thead><tr><td>排名</td><td>网站</td><td>热度</td></tr></thead>
+			<tbody><tr><td>1</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>2</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>3</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>4</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>5</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>6</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>7</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>8</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>9</td><td>baiduqianduan</td><td>13000</td></tr>
+			<tr><td>10</td><td>baiduqianduan</td><td>13000</td></tr></tbody>
+		</table>
+		<input type="text" />
+		<div id="banner">
+			<div id="banner1"></div>
+			<div id="banner2"></div>
+			<div id="banner3"></div>
+			<span>1</span><span>2</span><span>3</span>
+		</div>
+	</body>
+</html>
