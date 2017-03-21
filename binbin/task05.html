@@ -1,0 +1,91 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>binbin-task04</title>
+		<style>
+			#queue{vertical-align: bottom;display: flex;align-items:flex-end;}
+			#queue span{display: inline-block;width: 30px;text-align: center;background-color: red;margin-right: 10px;color: #fff;}
+		</style>
+	</head>
+	<body>
+		<input type='text' id='input'/>
+		<input type='button' value='左侧入' id='leftin'/>
+		<input type='button' value='右侧入' id='rightin'/>
+		<input type='button' value='左侧出' id='leftout'/>
+		<input type='button' value='右侧出' id='rightout'/>
+		<input type='button' value='冒泡排序' id='bubble'/>
+		<div id='queue'></div>
+		<script>
+			var count=0;
+			var queue=document.getElementById('queue');
+			var queuee={
+				checkIn:function(){
+					text=document.getElementById('input').value.trim();
+					if(text>100||text<10) {
+						alert('请输入10-100的数字！');
+						return false;
+					}
+					else return true;
+				},
+				leftPush:function(){
+					
+					if(queuee.checkIn()){
+						if(count>59) {alert('已超过最大数量！');return;}
+						html='<span style="height:'+text+'"px>'+text+'</span>';
+						queue.innerHTML=html+queue.innerHTML;
+						count++;
+					}
+				},
+				rightPush:function(){	
+					
+					if(queuee.checkIn()){
+						if(count>59) {alert('已超过最大数量！');return;}
+						html='<span style="height:'+text+'"px>'+text+'</span>';
+						queue.innerHTML+=html;
+						count++;
+					}
+				},
+				leftPop:function(){
+					if(count>0){
+						queue.removeChild(queue.children[0]);
+						count--;
+					}
+					
+				},
+				rightPop:function(){
+					if(count>0){
+						queue.removeChild(queue.children[queue.children.length-1]);
+						count--;
+					}
+				},
+				bubbleSort:function(){
+					var list=document.getElementsByTagName('span');
+					for(var i=list.length-1;i>0;i--){
+						for(var j=0;j<i;j++)
+							if(list[j].innerHTML>list[j+1].innerHTML) setTimeout(queuee.swap(list[j],list[j+1]),1000);
+					}
+				},
+				swap:function(a,b){
+					queue.insertBefore(b,a);
+				}
+			}
+
+			function init(){
+				document.getElementById('leftin').onclick=queuee.leftPush;
+				document.getElementById('rightin').onclick=queuee.rightPush;
+				document.getElementById('leftout').onclick=queuee.leftPop;
+				document.getElementById('rightout').onclick=queuee.rightPop;
+				document.getElementById('bubble').onclick=queuee.bubbleSort;
+				document.getElementById('queue').onclick=function(e){
+					if(e.target&&e.target.nodeName=='SPAN'){
+					e.target.parentNode.removeChild(e.target);
+					count--;
+					}
+				};
+			}
+
+			init();
+		</script>
+	</body>
+</html>
