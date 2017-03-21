@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>binbin-task04</title>
+		<style>
+			#queue span{display: inline-block;width: 30px;text-align: center;background-color: red;margin-right: 10px;}
+		</style>
+	</head>
+	<body>
+		<input type='text' id='input'/>
+		<input type='button' value='左侧入' id='leftin'/>
+		<input type='button' value='右侧入' id='rightin'/>
+		<input type='button' value='左侧出' id='leftout'/>
+		<input type='button' value='右侧出' id='rightout'/>
+		<div id='queue'></div>
+		<script>
+			
+			var queue=document.getElementById('queue');
+			var queuee={
+				leftPush:function(){
+					var text=document.getElementById('input').value.trim();
+					if(text){
+						html='<span>'+text+'</span>';
+						queue.innerHTML=html+queue.innerHTML;
+					}
+				},
+				rightPush:function(){	
+					var text=document.getElementById('input').value.trim();
+					if(text){
+						html='<span>'+text+'</span>';
+						queue.innerHTML+=html;
+					}
+				},
+				leftPop:function(){
+					if(queue.children.length!=0){
+						queue.removeChild(queue.children[0]);
+					}
+					
+				},
+				rightPop:function(){
+					if(queue.children.length!=0){
+						queue.removeChild(queue.children[queue.children.length-1]);
+					}
+				}
+			}
+
+			function init(){
+				document.getElementById('leftin').onclick=queuee.leftPush;
+				document.getElementById('rightin').onclick=queuee.rightPush;
+				document.getElementById('leftout').onclick=queuee.leftPop;
+				document.getElementById('rightout').onclick=queuee.rightPop;
+				document.getElementById('queue').onclick=function(e){
+					if(e.target&&e.target.nodeName=='SPAN'){
+					e.target.parentNode.removeChild(e.target);
+					}
+				};
+			}
+
+			init();
+		</script>
+	</body>
+</html>
