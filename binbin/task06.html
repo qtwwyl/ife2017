@@ -1,0 +1,88 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>binbin-task04</title>
+		<style>
+			#queue{vertical-align: bottom;}
+			#queue span{display: inline-block;text-align: center;background-color: #000;margin-right: 10px;color: #fff;}
+		</style>
+	</head>
+	<body>
+		<textarea id='input'></textarea>
+		<input type='button' value='左侧入' id='leftin'/>
+		<input type='button' value='右侧入' id='rightin'/>
+		<input type='button' value='左侧出' id='leftout'/>
+		<input type='button' value='右侧出' id='rightout'/>
+		<input type='text' id='search' />
+		<input type='button' value='查询' id='check'/>
+		<div id='queue'></div>
+		<script>
+			var count=0;
+			var queue=document.getElementById('queue');
+			var queuee={
+
+				check:function(){
+					for(var i=0;i<queue.children.length;i++){
+						queue.children[i].style.color='#fff';
+					}
+					var checkText=document.getElementById('search').value.trim();
+					if(checkText){
+						for(i=0;i<queue.children.length;i++){
+							if(queue.children[i].innerHTML.indexOf(checkText)!=-1)
+								queue.children[i].style.color='red';
+						}
+					}
+				},
+				
+				leftPush:function(){
+				var text=document.getElementById('input').value.trim();	
+					if(text){
+						
+						html='<span>'+text+'</span>';
+						queue.innerHTML=html+queue.innerHTML;
+						
+					}
+				},
+				rightPush:function(){	
+				var text=document.getElementById('input').value.trim();	
+					if(text){
+						
+						html='<span>'+text+'</span>';
+						queue.innerHTML+=html;
+						
+					}
+				},
+				leftPop:function(){
+					if(queue.children.length){
+						queue.removeChild(queue.children[0]);
+						
+					}
+					
+				},
+				rightPop:function(){
+					if(queue.children.length){
+						queue.removeChild(queue.children[queue.children.length-1]);
+						
+					}
+				}
+			}
+
+			function init(){
+				document.getElementById('leftin').onclick=queuee.leftPush;
+				document.getElementById('rightin').onclick=queuee.rightPush;
+				document.getElementById('leftout').onclick=queuee.leftPop;
+				document.getElementById('rightout').onclick=queuee.rightPop;
+				document.getElementById('check').onclick=queuee.check;
+				document.getElementById('queue').onclick=function(e){
+					if(e.target&&e.target.nodeName=='SPAN'){
+					e.target.parentNode.removeChild(e.target);
+					count--;
+					}
+				};
+			}
+
+			init();
+		</script>
+	</body>
+</html>
