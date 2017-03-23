@@ -1,0 +1,38 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>yaoyao-task06</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			#wrap{position: absolute;overflow: hidden;width: 100%;height: 100%;}
+			#mask{width: 100%;height: 100%;background: #7a7a7a;opacity: 0.5;}
+			#win{position: fixed;width:600px;height: 300px;left: 50%;top: 50%;margin-left:-300px;margin-top:-150px;border:1px solid #3b3b3b;  }
+			#head{height: 50px;background: #666;color: #ddd;padding-left: 20px;line-height: 50px;border-bottom: 1px solid #3b3b3b;}
+			#content{padding: 30px 20px;color: #3b3b3b;background: #fefefe;height: 248px;}
+			#btn{position: absolute;right: 0;bottom: 0;}
+			#btn input{margin: 0 16px 16px 0;height: 50px;width: 140px;background: #666;color: 
+				#ddd;border: 1px solid #3b3b3b;font-size: 1.2em;outline: none;}
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			
+		</div>
+		
+		<script>
+
+			function mask(title,content){
+				document.getElementById('wrap').innerHTML='<div id="mask"></div><div id="win"><div id="head">'
+				+title+'</div><div id="content">'+content
+				+'</div><div id="btn"><input type="button" value="确定" /><input type="button" value="取消" /></div></div>';
+				document.getElementById('mask').onclick=function  () {
+					document.getElementById('wrap').style.display='none';
+				}
+			}
+
+			mask('我是标题','我是内容');
+			
+		</script>
+	</body>
+</html>
