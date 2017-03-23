@@ -1,0 +1,128 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>yaoyao-task05</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			body{background: #000;}
+			#main{width: 660px;height:700px;margin: 100px auto;position: relative;background: #fff;}
+			#main #cordinate{padding-left: 30px;}
+			#main #cordinate span{display: inline-block;width: 60px;text-align: center;line-height: 30px;}
+			#main #cordinate p{margin-left:-30px;width: 30px;line-height: 60px;text-align: center; }
+			#table{position: absolute;left: 30px;top: 30px;}
+			#box{width: 60px;height: 60px;background-color: red;border-top: 16px solid blue;transition:left 1s,top 1s,transform 1s;}
+			#check{display: flex;align-items:center;justify-content:center;height: 70px;width: 100%;}
+			#check input{display: inline-block;width: 80px;height: 30px;margin-right: 10px;border-radius: 6px;}
+		</style>
+	</head>
+	<body>
+		<div id='main'>
+			<div id='cordinate'>
+				<span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p><p>8</p><p>9</p><p>10</p>
+			</div>
+			<div id='table'>
+				<canvas id='myCanvas' width='600px' height='600px'></canvas>
+				<div id='box' style='position:absolute;left:300px;top:300px'></div>
+			</div>
+			<div id='check'>
+				<input type='button' value='Go' /><input type='button' value='TurnLeft' /><input type='button' value='TurnRight' /><input type='button' value='TurnBack' />
+			</div>
+		</div>
+		<script>
+			var c=document.getElementById('myCanvas');
+			var cxt=c.getContext('2d');
+			cxt.strokeStyle="#d0d0d0";
+					
+			for(var i=60;i<600;i+=60){
+				cxt.beginPath();
+				cxt.moveTo(0,i);
+				cxt.lineTo(600,i);
+				cxt.closePath();
+				cxt.stroke();
+
+				cxt.beginPath();
+				cxt.moveTo(i,0);
+				cxt.lineTo(i,600);
+				cxt.closePath();
+				cxt.stroke();
+			}
+			
+			cxt.strokeStyle="#000";
+			cxt.strokeRect(0,0,600,600);
+
+			var box=document.getElementById('box');
+			var direction=0;
+			var boxCommand={
+				
+				go:function(){
+					switch(direction){
+						case 0:
+							if(box.style.top!='0px')
+								box.style.top=parseInt(box.style.top)-60+'px';
+							return;
+						case 1:
+							if(box.style.left!='540px')
+								box.style.left=parseInt(box.style.left)+60+'px';
+							return;
+						case 2:
+							if(box.style.top!='540px')
+								box.style.top=parseInt(box.style.top)+60+'px';
+							return;
+						case 3:
+							if(box.style.left!='0px')
+								box.style.left=parseInt(box.style.left)-60+'px';
+							return;
+					}
+				},
+				turnLeft:function(){
+					if(box.style.transform){
+						var deg=parseInt(box.style.transform.replace(/[^0-9-]/g,""))-90;
+						box.style.transform='rotate('+deg+'deg)';
+						
+					}
+					else box.style.transform='rotate(-90deg)';
+					direction=(direction+3)%4;
+				},
+				turnRight:function(){
+					if(box.style.transform){
+						var deg=parseInt(box.style.transform.replace(/[^0-9-]/g,""))+90;
+						box.style.transform='rotate('+deg+'deg)';
+						
+					}
+					else box.style.transform='rotate(90deg)';
+					direction=(direction+1)%4;
+				},
+				turnBack:function(){
+					if(box.style.transform){
+						var deg=parseInt(box.style.transform.replace(/[^0-9-]/g,""))+180;
+						box.style.transform='rotate('+deg+'deg)';
+						
+					}
+					else box.style.transform='rotate(180deg)';
+					direction=(direction+2)%4;
+				}
+			}
+			document.getElementById('check').onclick=function (e) {
+				if(e.target.nodeName='INPUT'){
+					var command=e.target.value;
+					switch(command){
+						case 'Go':
+							boxCommand.go();
+							return;
+						case 'TurnLeft':
+							boxCommand.turnLeft();
+							return;
+						case 'TurnRight':
+							boxCommand.turnRight();
+							return;
+						case 'TurnBack':
+							boxCommand.turnBack();
+							return;
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>
