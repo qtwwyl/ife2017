@@ -1,0 +1,56 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+		<title>表单task03</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			
+			form{margin:auto;text-align: center;}
+			div{height: 60px;margin: 10px;}
+			#out-info{display: none;}
+			select{width: 100px;height: 30px;}
+			#sh{display: none;}
+		</style>
+	</head>
+	<body>
+		<form>
+			<label for='in'><input type='radio' name='identity'  id='in' checked onfocus='place()'/>在校生</label>
+			<label for='out'><input type='radio' name='identity'  id='out' onfocus='work()'/>非在校生</label>
+			<div id='in-info'>
+				<label>学校</label><select id='city' onchange='change()'><option selected />北京</option><option>上海</option></select>
+				<select id='bj' ><option selected />北京大学</option><option>清华大学</option></select>
+				<select id='sh' ><option selected />复旦大学</option><option>同济大学</option></select>
+			</div>
+			<div id='out-info'>
+				<label for='workplace'>就业单位</label><input type='text' id='workplace' />	
+			</div>
+		</form>
+		<script>
+			$=function(id){
+				return document.getElementById(id);
+			};
+			function place(){
+				$('out-info').style.display='none';
+				$('in-info').style.display='block';
+			}
+			function work(){
+				$('in-info').style.display='none';
+				$('out-info').style.display='block';
+			}
+			function change(){
+				if($('city').selectedIndex==0){
+					$('sh').style.display='none';
+					$('bj').style.display='inline-block';
+					
+				}
+				if($('city').selectedIndex==1){
+					$('bj').style.display='none';
+					$('sh').style.display='inline-block';
+					
+				}
+
+			}
+		</script>
+	</body>
+</html>
