@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nuomi-task08</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			#btn{width: 600px;height: 100px;line-height: 100px;border: 1px solid gray;margin: 300px auto;text-align: center;}
+			#menu{display: none;list-style: none;width: 160px;border: 1px solid gray;line-height: 30px;position: absolute;text-align: center;}
+		</style>
+	</head>
+	<body>
+
+		<p id='btn'>右击查看</p>
+		<ul id='menu'>
+			<li>Menu item 1</li>
+			<li>Menu item 2</li>
+			<li>Menu item 3</li>
+			<li>Menu item 4</li>
+		</ul>
+		<script>
+			var $=document.querySelector.bind(document);
+			$('#btn').addEventListener('contextmenu',function (e) {
+				e.preventDefault();
+				$('#menu').style.display='block';
+				if($('#menu').offsetWidth+e.pageX>document.body.clientWidth){
+					$('#menu').style.left=e.pageX-$('#menu').offsetWidth+'px';
+				}
+				else{
+					$('#menu').style.left=e.pageX+'px';
+				}
+				if($('#menu').offsetHeight+e.pageY>document.body.clientHeight){
+					$('#menu').style.top=e.pageY-$('#menu').offsetHeight+'px';
+				}
+				else{
+					$('#menu').style.top=e.pageY+'px';
+				}
+
+			});
+			$('#menu').addEventListener('click',function(e){
+				if(e.target.nodeName=='LI')
+					alert(e.target.innerText);
+				e.stopPropagation();
+			});
+			document.body.addEventListener('click',function(e){
+				$('#menu').style.display='none';
+			});
+
+		</script>
+	</body>
+</html>
