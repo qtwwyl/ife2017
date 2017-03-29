@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nuomi-task06</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			input{display: none;}
+			#wrap{display: flex;width: 100px;height: 100px;align-items:center;justify-content:space-around;margin: 100px auto;}
+
+			#checkbox+label{display:flex;width: 16px;height: 16px;border: 1px solid gray;}
+			#checkbox:checked+label{border: 1px solid red;}
+			#checkbox:checked+label::after{content: '√';width: 14px;height: 14px;color: red;text-align: center;line-height: 14px;font-size: 10px;}
+			input[id*='radio']+label{width: 16px;height: 16px;border: 1px solid gray;border-radius: 50%;display: inline-block;}
+			input[id*='radio']:checked+label{border:1px solid red;}
+			input[id*='radio']:checked+label::after{content: '';width: 6px;height: 6px;border-radius: 50%;background: red;margin: 4px;display: inline-block;}
+		</style>
+	</head>
+	<body>
+		<div id='wrap'>
+			<div id='cc'>
+				<input type='checkbox' id='checkbox' /><label for='checkbox'></label>
+			</div>
+			<div>
+				<input type='radio' id='radio1' name='radio'/><label for='radio1'></label>
+				<input type='radio' id='radio2' name='radio'/><label for='radio2'></label>
+			</div>
+		</div>
+	</body>
+</html>
