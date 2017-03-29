@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nuomi-task09</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			#wrap{width: 600px;border: 1px solid #e0e0e0;margin: 100px auto;padding: 10px;}
+			input{display: none;}
+			.item{width: 500px;margin-bottom: 10px;}
+			input+label{border: 1px solid #e0e0e0;line-height: 40px;display: block;width: 100%;transition:max-height 1s;max-height: 40px;overflow: hidden;}
+			input+label::after{border-top: 1px solid #e0e0e0;display: block;content: 'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. ';line-height:20px;width:500px;padding:10px;box-sizing:border-box;}
+			input:checked+label{max-height: 280px;}
+			
+			
+		</style>
+	</head>
+	<body>
+
+		<div id='wrap'>
+			<div class='item'><input type='radio'  name='panel' id='item1' /><label for='item1'>Collapsible Group Item #1</label></div>
+			<div class='item'><input type='radio'  name='panel' id='item2' /><label for='item2'>Collapsible Group Item #2</label></div>
+			<div class='item'><input type='radio'  name='panel' id='item3' /><label for='item3'>Collapsible Group Item #3</label></div>
+		</div>
+
+	</body>
+</html>
