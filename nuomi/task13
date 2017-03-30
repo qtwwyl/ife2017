@@ -1,0 +1,39 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nuomi-task13</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			#root{perspective:3000px;}
+			#wrap{width: 300px;height: 400px;position: relative;margin: 300px auto;transform-style:preserve-3d;transition:transform 1s;}
+			img{position: absolute;width: 300px;height: 400px;}
+			img:nth-child(1){transform:rotateY(0) translateZ(500px);}
+			img:nth-child(2){transform:rotateY(60deg) translateZ(500px);}
+			img:nth-child(3){transform:rotateY(120deg) translateZ(500px);}
+			img:nth-child(4){transform:rotateY(180deg) translateZ(500px);}
+			img:nth-child(5){transform:rotateY(240deg) translateZ(500px);}
+			img:nth-child(6){transform:rotateY(300deg) translateZ(500px);}
+			
+		</style>
+	</head>
+	<body>
+		<div id='root'>
+			<div id='wrap'>
+				<img src='1.jpg' />
+				<img src='2.jpg' />
+				<img src='3.jpg' />
+				<img src='4.jpg' />
+				<img src='5.jpg' />
+				<img src='6.jpg' />
+			</div>
+		</div>
+		<script>
+			var angel=0;
+			document.querySelector('#wrap').addEventListener('click',function (e) {
+				angel+=60;
+				this.style.transform='rotateY('+angel+'deg)';
+			});
+		</script>
+	</body>
+</html>
