@@ -1,0 +1,32 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>nuomi-task10</title>
+		<style>
+			*{margin: 0;padding: 0;box-sizing:border-box;}
+			#wrap{margin: 100px auto;line-height: 50px;width: 600px;text-align: center;}
+			
+		</style>
+	</head>
+	<body>
+
+		<div id='wrap'>
+			<div>是否为手机号<input type='number' id='tel'/><input type='button' value='判断' id='tel-check'/></div>
+			<div>是否有相邻重复单词<input type='text' id='str'/><input type='button' value='判断' id='str-check'/></div>
+		</div>
+		<script>
+			var $=document.querySelector.bind(document);
+			$('#tel-check').addEventListener('click',function (e) {
+				var rect=/^1[34578]\d{9}$/;
+				if($('#tel').value.match(rect)) alert('true!');
+				else alert('false!');
+			});
+			$('#str-check').addEventListener('click',function (e) {
+				var rect=/(?:^|\s)\b([a-zA-Z]+(?:-[a-zA-Z])*)\b\s+\1\b(?=\s|$)/;
+				if($('#str').value.match(rect)) alert('true!');
+				else alert('false!');
+			});
+		</script>
+	</body>
+</html>
